@@ -52,9 +52,9 @@ final class ProfileViewController: UIViewController {
     
     // MARK: - Data Source
     var user: User = User(name: "Павел Кригин",
-                          tagline: "iOS разработчик, опыт более года",
+                          tagline: "iOS разработчик, опыт менее года",
                           location: "Подгорица",
-                          about: "Researcher of SWIFT and technologies in the field of iOS development. I am undergoing intensive training. At the moment I know the basics of SWIFT. My experience working on a range of projects, from simple utility apps to complex enterprise- level applications, has honed my ability to design user-friendly interfaces, work with RESTful APIs, and integrate third-party libraries. Participant of 24 hours Hackaton, with the team, we have been developing a new boat-sharing service for the Adriatic coast, https://flshackathon.com.",
+                          about: "Researcher of SWIFT and technologies in the field of iOS development. I am undergoing intensive training. At the moment I know the basics of SWIFT. Participant of 24 hours Hackaton, with the team, we have been developing a new boat-sharing service for the Adriatic coast, https://flshackathon.com.",
                           skills: ["ООП и SOLID", "MVC/MVP/MVVM/VIPER", "UIKit", "SwiftUI"])
     
     // MARK: - View Lifecycle
@@ -69,6 +69,7 @@ final class ProfileViewController: UIViewController {
         title = "Профиль"
         
         // Add UI elements to the view hierarchy
+//        view.addSubview(title)
         view.addSubview(photoImageView)
         view.addSubview(taglineLabel)
         view.addSubview(locationLabel)
@@ -118,17 +119,33 @@ final class ProfileViewController: UIViewController {
     
     // MARK: - Button Actions
     @objc private func editButtonTapped() {
+        let alertController = UIAlertController(title: "Режим редактирования",
+                                                message: nil,
+                                                preferredStyle: .actionSheet)
+        
         if skillsTableView.isEditing {
             // Сохранение изменений, если таблица находится в режиме редактирования
-            skillsTableView.setEditing(false, animated: true)
-            editButton.setTitle("Редактировать", for: .normal)
+            let saveAction = UIAlertAction(title: "Сохранить", style: .default) { [weak self] _ in
+                self?.skillsTableView.setEditing(false, animated: true)
+                self?.editButton.setTitle("Редактировать", for: .normal)
+            }
+            alertController.addAction(saveAction)
         } else {
             // Вход в режим редактирования
-            skillsTableView.setEditing(true, animated: true)
-            editButton.setTitle("Готово", for: .normal)
+            let editAction = UIAlertAction(title: "Редактировать", style: .default) { [weak self] _ in
+                self?.skillsTableView.setEditing(true, animated: true)
+                self?.editButton.setTitle("Готово", for: .normal)
+            }
+            alertController.addAction(editAction)
         }
+        
+        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true, completion: nil)
     }
 }
+
 
 // MARK: - UITableViewDelegate and UITableViewDataSource
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
