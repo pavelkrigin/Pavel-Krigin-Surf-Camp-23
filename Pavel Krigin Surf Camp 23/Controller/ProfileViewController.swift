@@ -188,9 +188,9 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView.isEditing && indexPath.row == user.skills.count {
             // Добавление нового навыка через UIAlertController
-            let alertController = UIAlertController(title: "Добавить навык", message: nil, preferredStyle: .alert)
+            let alertController = UIAlertController(title: "Добавление навыка", message: nil, preferredStyle: .alert)
             alertController.addTextField { textField in
-                textField.placeholder = "Введите название навыка"
+                textField.placeholder = "Введите название навыка, которым вы владеете"
             }
             let addAction = UIAlertAction(title: "Добавить", style: .default) { [weak self] _ in
                 guard let skill = alertController.textFields?.first?.text else { return }
