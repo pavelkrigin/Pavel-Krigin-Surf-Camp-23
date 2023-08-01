@@ -58,13 +58,45 @@
 			children = (
 				CAE888E92A78FB9A0095BEF2 /* AppDelegate.swift */,
 				CAE888EB2A78FB9A0095BEF2 /* SceneDelegate.swift */,
-				CAE888ED2A78FB9A0095BEF2 /* ViewController.swift */,
-				CAE888EF2A78FB9A0095BEF2 /* Main.storyboard */,
-				CAE888F22A78FB9B0095BEF2 /* Assets.xcassets */,
-				CAE888F42A78FB9B0095BEF2 /* LaunchScreen.storyboard */,
+				CAE889012A792CE00095BEF2 /* Resources */,
+				CAE889002A791DB40095BEF2 /* Model */,
+				CAE888FF2A791DA40095BEF2 /* View */,
+				CAE888FD2A791D880095BEF2 /* Controller */,
 				CAE888F72A78FB9B0095BEF2 /* Info.plist */,
 			);
 			path = "Pavel Krigin Surf Camp 23";
+			sourceTree = "<group>";
+		};
+		CAE888FD2A791D880095BEF2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CAE888ED2A78FB9A0095BEF2 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CAE888FF2A791DA40095BEF2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CAE889002A791DB40095BEF2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CAE889012A792CE00095BEF2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CAE888F42A78FB9B0095BEF2 /* LaunchScreen.storyboard */,
+				CAE888EF2A78FB9A0095BEF2 /* Main.storyboard */,
+				CAE888F22A78FB9B0095BEF2 /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
