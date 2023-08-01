@@ -68,8 +68,8 @@ final class ProfileViewController: UIViewController {
         view.backgroundColor = .white
         title = "Профиль"
         
-        // Add UI elements to the view hierarchy
-//        view.addSubview(title)
+        // Добавление UI элементов в иерархию представления
+        //        view.addSubview(title)
         view.addSubview(photoImageView)
         view.addSubview(taglineLabel)
         view.addSubview(locationLabel)
@@ -77,7 +77,7 @@ final class ProfileViewController: UIViewController {
         view.addSubview(aboutTextView)
         view.addSubview(editButton)
         
-        // Setup constraints
+        // Обозначение констрейтов
         NSLayoutConstraint.activate([
             photoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
             photoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -111,7 +111,7 @@ final class ProfileViewController: UIViewController {
         locationLabel.text = user.location
         aboutTextView.text = user.about
         
-        // Setup TableView
+        // Установка TableView
         skillsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "SkillCell")
         skillsTableView.delegate = self
         skillsTableView.dataSource = self
@@ -173,7 +173,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    // Разрешить перемещение строк в режиме редактирования
+    // Перемещение строк в режиме редактирования
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         return tableView.isEditing && indexPath.row < user.skills.count
     }
