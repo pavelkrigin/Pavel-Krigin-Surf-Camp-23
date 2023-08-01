@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ProfileViewController.swift
 //  Pavel Krigin Surf Camp 23
 //
 //  Created by Pavel Krigin on 01.08.2023.
@@ -11,7 +11,7 @@ final class ProfileViewController: UIViewController {
     // MARK: - UI Elements
     let photoImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "user_placeholder")
+        imageView.image = UIImage(named: "Photo")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -45,18 +45,18 @@ final class ProfileViewController: UIViewController {
     let editButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Редактировать", for: .normal)
-        button.addTarget(self, action: #selector(editButtonTapped), for: .touchUpInside)
+        button.addTarget(ProfileViewController.self, action: #selector(editButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
     // MARK: - Data Source
     var user: User = User(name: "Павел Кригин",
-                          tagline: "Краткий девиз пользователя",
-                          location: "Место жительства пользователя",
-                          about: "Текстовый блок о себе",
-                          skills: ["ООП и SOLID", "MVC/MVP/MVVM/VIPER", "Навык 3"])
-
+                          tagline: "iOS разработчик, опыт более года",
+                          location: "Подгорица",
+                          about: "Researcher of SWIFT and technologies in the field of iOS development. I am undergoing intensive training. At the moment I know the basics of SWIFT. My experience working on a range of projects, from simple utility apps to complex enterprise- level applications, has honed my ability to design user-friendly interfaces, work with RESTful APIs, and integrate third-party libraries. Participant of 24 hours Hackaton, with the team, we have been developing a new boat-sharing service for the Adriatic coast, https://flshackathon.com.",
+                          skills: ["ООП и SOLID", "MVC/MVP/MVVM/VIPER", "UIKit", "SwiftUI"])
+    
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,7 +65,7 @@ final class ProfileViewController: UIViewController {
     
     // MARK: - UI Setup
     private func setupUI() {
-        view.backgroundColor = .lightGray
+        view.backgroundColor = .white
         title = "Профиль"
         
         // Add UI elements to the view hierarchy
@@ -78,7 +78,31 @@ final class ProfileViewController: UIViewController {
         
         // Setup constraints
         NSLayoutConstraint.activate([
-            // ... Add constraints for all UI elements ...
+            photoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
+            photoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            photoImageView.widthAnchor.constraint(equalToConstant: 100),
+            photoImageView.heightAnchor.constraint(equalToConstant: 100),
+            
+            taglineLabel.topAnchor.constraint(equalTo: photoImageView.bottomAnchor, constant: 16),
+            taglineLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            taglineLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            
+            locationLabel.topAnchor.constraint(equalTo: taglineLabel.bottomAnchor, constant: 8),
+            locationLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            locationLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            
+            skillsTableView.topAnchor.constraint(equalTo: locationLabel.bottomAnchor, constant: 16),
+            skillsTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            skillsTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            skillsTableView.heightAnchor.constraint(lessThanOrEqualToConstant: 150),
+            
+            aboutTextView.topAnchor.constraint(equalTo: skillsTableView.bottomAnchor, constant: 16),
+            aboutTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            aboutTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            aboutTextView.bottomAnchor.constraint(equalTo: editButton.topAnchor, constant: -16),
+            
+            editButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            editButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16),
         ])
         
         // Заполнение UI данными пользователя
@@ -91,7 +115,7 @@ final class ProfileViewController: UIViewController {
         skillsTableView.delegate = self
         skillsTableView.dataSource = self
     }
-
+    
     // MARK: - Button Actions
     @objc private func editButtonTapped() {
         if skillsTableView.isEditing {
