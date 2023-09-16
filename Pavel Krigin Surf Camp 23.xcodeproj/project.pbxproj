@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C3A90E7E2AB5B4BB00FB4D5E /* ProfileDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A90E7D2AB5B4BB00FB4D5E /* ProfileDataSource.swift */; };
+		C3A90E822AB5B79400FB4D5E /* ProfileSkillCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A90E812AB5B79400FB4D5E /* ProfileSkillCollectionViewCell.swift */; };
 		CAE888EA2A78FB9A0095BEF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE888E92A78FB9A0095BEF2 /* AppDelegate.swift */; };
 		CAE888EC2A78FB9A0095BEF2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE888EB2A78FB9A0095BEF2 /* SceneDelegate.swift */; };
 		CAE888EE2A78FB9A0095BEF2 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE888ED2A78FB9A0095BEF2 /* ProfileViewController.swift */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C3A90E7D2AB5B4BB00FB4D5E /* ProfileDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataSource.swift; sourceTree = "<group>"; };
+		C3A90E812AB5B79400FB4D5E /* ProfileSkillCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSkillCollectionViewCell.swift; sourceTree = "<group>"; };
 		CAE888E62A78FB9A0095BEF2 /* Pavel Krigin Surf Camp 23.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pavel Krigin Surf Camp 23.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAE888E92A78FB9A0095BEF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CAE888EB2A78FB9A0095BEF2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +84,7 @@
 		CAE888FF2A791DA40095BEF2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C3A90E812AB5B79400FB4D5E /* ProfileSkillCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -88,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				CAE889022A792DE60095BEF2 /* Model.swift */,
+				C3A90E7D2AB5B4BB00FB4D5E /* ProfileDataSource.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -175,8 +181,10 @@
 			files = (
 				CAE888EE2A78FB9A0095BEF2 /* ProfileViewController.swift in Sources */,
 				CAE888EA2A78FB9A0095BEF2 /* AppDelegate.swift in Sources */,
+				C3A90E7E2AB5B4BB00FB4D5E /* ProfileDataSource.swift in Sources */,
 				CAE888EC2A78FB9A0095BEF2 /* SceneDelegate.swift in Sources */,
 				CAE889032A792DE60095BEF2 /* Model.swift in Sources */,
+				C3A90E822AB5B79400FB4D5E /* ProfileSkillCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

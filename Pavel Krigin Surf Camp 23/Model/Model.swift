@@ -13,4 +13,5 @@ struct User {
     var location: String // Место жительства
     var about: String // О себе
     var skills: [String] // Навыки пользователя
+    let photoString: String
 }
